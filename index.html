@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun And Coding</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #username-display {
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        // التحقق من وجود توكن في الـ localStorage
+        const token = localStorage.getItem("token");
+        if (!token) {
+          window.location.href = "Slide login form.html"; // إذا مفيش توكن، حوله للصفحة الرئيسية
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const userInfo = document.getElementById("user-info");
+            const usernameDisplay = document.getElementById("username-display");
+            const loginLink = document.getElementById("Slide login form-link");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            if (token) {
+            // عرض معلومات المستخدم وإخفاء زر login
+            const user = JSON.parse(localStorage.getItem("user")); // جلب بيانات المستخدم المخزنة
+            if (user && user.name) {
+                usernameDisplay.textContent = `Welcome, ${user.name}`;
+            } else {
+                usernameDisplay.textContent = "Welcome!";
+            }
+
+            userInfo.style.display = "flex"; // عرض قسم المستخدم
+            loginLink.style.display = "none"; // إخفاء زر تسجيل الدخول
+            } else {
+            userInfo.style.display = "none";
+            loginLink.style.display = "inline-block";
+            }
+
+    // تسجيل الخروج
+    logoutBtn.addEventListener("click", function () {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      window.location.href = "Slide login form.html"; // ارجعه لصفحة تسجيل الدخول
+    });
+  });
+      </script>
+</head>
+
+<body>
+    
+<header class="header">
+    <section class="flex">
+        <a href="#" class="logo"><i class="fa fa-trophy"></i>CodeQuest</a>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#faq">Faq</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div id="user-status">
+            <a href="Slide login form.html" class="btn" id="Slide login form-link">Sign Up</a>
+            <div class="user-info" id="user-info" style="display: none;">
+                <span id="username-display"></span>
+                <button id="logout-btn" class="btn">Sign Out</button>
+            </div>
+
+    </section>
+</header>  
+
+<div id="menu-btn" class="fa fa-bars-staggered"></div>
+
+<div class="home" id="home">
+    <section class="flex">
+        <div class="content">
+            <h3><span>Code</span>Quest</h3>
+            <p>Code Quest is an interactive platform designed to make learning programming an exciting and immersive experience. Through story-driven challenges and hands-on coding quests, users explore different virtual worlds while building real-life programming skills. Whether you’re a beginner or looking to sharpen your coding abilities, Code Quest turns education into an epic journey—where every line of code unlocks a new adventure.</p>
+            
+        </div>
+
+        <div class="image">
+            <img src="ChatGPT Image 21 أبريل 2025، 01_43_40 م.png" alt="">
+        </div>
+    </section>
+</div>
+
+<section class="features">
+    <h1 class="heading">Our <span>features</span></h1>
+
+    <div class="box-container">
+        <div class="box">
+            <img src="bg1.png" alt="">
+            <h3>Gamified Learning<br> Experience</h3>
+            <p>In Code Quest, coding feels like an adventure. Learn through fun challenges, level up, and earn points as you go.</p>
+        </div>
+
+        <div class="box">
+            <img src="bg2.png" alt="">
+            <h3>Instant Feedback &<br> Hints System</h3>
+            <p>Stuck on a challenge? Code Quest gives you real-time feedback and smart hints to guide you forward—so you learn from mistakes without losing momentum.</p>
+        </div>
+
+        <div class="box">
+            <img src="bg3.png" alt="">
+            <h3>Mini-Games to Reinforce<br> Concepts</h3>
+            <p>Learning doesn’t have to be all serious—Code Quest offers fun mini-games designed to help you practice and remember key coding concepts without even realizing you’re studying.</p>
+        </div>
+    </div>
+</section>
+
+<div class="about" id="about">
+    <section class="flex">
+        <div class="image">
+            <img src="about1-Photoroom.png" alt="">
+        </div>  
+        
+        <div class="content">
+            <h3>About us</h3>
+            <p>Code Quest is where coding meets adventure. Dive into interactive challenges, sharpen your skills, and enjoy the thrill of problem-solving — one quest at a time.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+
+        <div class="image">
+            <img src="about2.png" alt="">
+        </div>
+    </section>
+</div>
+
+
+
+<section class="top-game">
+    <h1 class="heading"><span>TOP</span>Challenges</h1>
+
+    <div class="background-overlay"></div>
+    <div id="particles-js"></div>
+    <div class="animated-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-4"></div>
+    </div>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <h1><span class="code-text">Code</span> <span class="quest-text">Quest</span></h1>
+                <div class="logo-badge">An exciting journey to learn programming</div>
+            </div>
+            <p>Start your fun coding adventure!</p>
+        </header>
+
+        <main>
+            <div class="language-selection" id="language-selection">
+                <h2>Choose Your Challenge Path</h2>
+
+                <div class="language-cards">
+                    <div class="card" data-language="python">
+                        <div class="card-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
+                        <p>Learn Python basics through 10 challenges</p>
+                        <button class="start-btn">Start the adventure</button>
+                    </div>
+
+                    <div class="card" data-language="html">
+                        <div class="card-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3>HTML</h3>
+                        <p>Learn HTML basics through 10 challenges</p>
+                        <button class="start-btn">Start the adventure</button>
+                    </div>
+
+                    <div class="card" data-language="css">
+                        <div class="card-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS</h3>
+                        <p>Learn CSS basics through 10 challenges</p>
+                        <button class="start-btn">Start the adventure</button>
+                    </div>
+
+                    <div class="card" data-language="javascript">
+                        <div class="card-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>Learn JavaScript basics through 10 challenges</p>
+                        <button class="start-btn">Start the adventure</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-container hidden" id="challenge-container">
+                <div class="challenge-header">
+                    <div class="language-badge" id="current-language">Python</div>
+
+                    <div class="progress-container">
+                        <div class="progress-text">
+                            Challenge: <span id="challenge-number">1</span>/10
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress" id="progress-indicator"></div>
+                        </div>
+                    </div>
+
+                    <button class="back-btn" id="back-btn">
+                        <i class="fas fa-arrow-right"></i> Back
+                    </button>
+                </div>
+
+                <div class="challenge-content">
+                    <div class="challenge-description">
+                        <h3 id="challenge-title">Challenge Title</h3>
+                        <p id="challenge-description">Challenge instructions will appear here. Read them carefully and complete the code.</p>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-editor">
+                            <div class="editor-header">
+                                <span>Complete the code</span>
+                            </div>
+
+                            <div class="code-area">
+                                <pre id="code-prefix"></pre>
+                                <div id="sortable-area" class="sortable-area"></div>
+                                <pre id="code-suffix"></pre>
+                            </div>
+                        </div>
+
+                        <div class="code-options">
+                            <div class="options-header">
+                                <span>Code Words</span>
+                            </div>
+                            <div id="code-words" class="code-words"></div>
+                        </div>
+                    </div>
+
+                    <div class="challenge-actions">
+                        <button id="check-answer-btn" class="primary-btn">Check Answer</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-modal hidden" id="result-modal">
+                <div class="result-content">
+                    <div id="success-message" class="hidden">
+                        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                        <h3>Great Job!</h3>
+                        <p>You completed the challenge successfully.</p>
+                    </div>
+
+                    <div id="error-message" class="hidden">
+                        <div class="error-icon"><i class="fas fa-times-circle"></i></div>
+                        <h3>Try Again</h3>
+                        <p>The order is incorrect. Review the code and try again.</p>
+                    </div>
+
+                    <div id="completion-message" class="hidden">
+                        <div class="success-icon"><i class="fas fa-trophy"></i></div>
+                        <h3>Congratulations!</h3>
+                        <p>You successfully completed all challenges in <span id="completed-language"></span>!</p>
+                        <div class="code-certificate">
+                            <pre class="certificate-code" id="certificate-code"></pre>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button id="next-challenge-btn" class="primary-btn">Next Challenge</button>
+                        <button id="try-again-btn" class="secondary-btn">Try Again</button>
+                        <button id="return-home-btn" class="secondary-btn">Return Home</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</section>
+              
+<div class="info-container">
+    <section class="box-container">
+        <div class="box">
+            <img src="Badges to keep you motivated.png" alt="">
+            <h3>Badges to keep you motivated</h3>
+        </div>
+        <div class="box">
+            <img src="Fun skill-building quests..png" alt="">
+            <h3>Fun skill-building</h3>
+        </div>
+        <div class="box">
+            <img src="Active coding community.png" alt="">
+            <h3>Active coding community</h3>
+        </div>
+        <div class="box">
+            <img src="Progress tracking.png" alt="">
+            <h3>Progress Tracking</h3>
+        </div>
+
+    </section>
+
+</div>
+
+<div class="faq" id="faq">
+    <section class="box-container">
+      <h1 class="heading">
+        <span>f</span>requently <span>a</span>sked <span>q</span>uestions
+      </h1>
+  
+      <div class="box">
+        <div class="title">
+          <h3>What is Code Quest?</h3>
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="content">
+          Code Quest is an interactive platform designed to teach programming through challenges, hands-on projects, and structured courses for all skill levels.
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="title">
+          <h3>Who is Code Quest for?</h3>
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="content">
+          It’s for students, beginner developers, or anyone who wants to learn coding in a fun and practical way.
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="title">
+          <h3>Is Code Quest free?</h3>
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="content">
+          We offer free content as well as premium subscription plans that include advanced courses, certificates, and personalized support.
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="title">
+          <h3>What programming languages can I learn?</h3>
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="content">
+          You can learn various languages including Python, JavaScript, HTML/CSS. New content is added regularly.
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="title">
+          <h3>Do I need any prior experience?</h3>
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="content">
+          No prior experience is needed. We offer beginner-friendly paths to help you start from scratch.
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="title">
+          <h3>How is my progress tracked?</h3>
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="content">
+          You can track your progress through completed courses, earned points, and badges.
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="title">
+          <h3>Can I use Code Quest on my phone?</h3>
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="content">
+          Yes, the platform works well on mobile browsers, and a dedicated app is in development.
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="title">
+          <h3>Can I create my own challenges or share my projects?</h3>
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="content">
+          Absolutely! You can create coding challenges, share your work, and engage with our developer community.
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="title">
+          <h3>How can I contact support?</h3>
+          <i class="fa fa-plus"></i>
+        </div>
+        <div class="content">
+          You can reach us via the Contact Us page or by emailing us at support@codequest.com.
+        </div>
+      </div>
+    </section>
+  </div>   
+       
+                </div>
+
+
+            </section>
+
+</div>
+
+
+
+
+<section class="contact" id="contact">
+    <h1 class="heading"><span>contact</span> us</h1>
+
+    <div class="box-container">
+        <div class="box">
+            <img src="gmail.png" alt="">
+            <h3>Email</h3>
+            <a href="support@codequest.com">support@codequest.com</a>
+           
+        </div>
+        <div class="box">
+            <img src="phone.png" alt="">
+            <h3>Phone</h3>
+            <a href="tel:0577801613">0577801613</a>
+            
+        </div>
+        <div class="box">
+            <img src="location.png" alt="">
+            <h3>address</h3>
+            <a href="#">Al-Madinah Al-Munawwarah</a>
+        </div>
+    </div>
+
+    <form action="" class="form">
+        <h1 class="heading"><span>get</span> in touch</h1>
+        <div class="flex">
+            <input type="text" placeholder="your name" class="input">
+            <input type="email" placeholder="your email" class="input">  
+            <input type="number" placeholder="your number" class="input"> 
+            <input type="email" placeholder="your country" class="input">  
+        </div>
+        <textarea name="" class="input" placeholder="your message"></textarea>
+        <input type="submit" value="send message" class="btn">
+    </form>
+</section>
+
+<footer class="footer">
+    <section class="box-container">
+        <div class="box">
+
+            <h3>Enjoy!!</h3>
+           
+        </div>
+    </section>
+    <section class="credit">
+        <p>created by <span> Code Quest Team</span></p>
+        <p>@ copyright @2025 | all rights reserved.</p>
+    </section>
+</footer>
+
+
+<script src="Script1.js"></script>
+<script src="Script2.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="data1.js"></script>
+<script src="data2.js"></script>
+<script src="data3.js"></script>
+
+</body>
+</html>
